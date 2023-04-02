@@ -1,31 +1,69 @@
-const prev = document.querySelector('.prev');
-const next = document.querySelector('.next');
+let arrayImg = [
+    'https://picsum.photos/id/237/700/500',
+    'https://picsum.photos/id/465/700/500',
+    'https://picsum.photos/id/765/700/500',
+    'https://picsum.photos/id/743/700/500',
+    'https://picsum.photos/id/1/700/500',
+    'https://picsum.photos/id/946/700/500',
+    'https://picsum.photos/id/136/700/500',
+    'https://picsum.photos/id/512/700/500',
+    'https://picsum.photos/id/100/700/500',
+    'https://picsum.photos/id/111/700/500',
+    'https://picsum.photos/id/789/700/500',
+    'https://picsum.photos/id/456/700/500',
+    'https://picsum.photos/id/123/700/500',
+    'https://picsum.photos/id/147/700/500',
+]
 
-let immagini = [
-'<img src="./img/01.webp" class="none prova">',
-`<img src="./img/02.webp" class="none prova">`,
-`<img src="./img/03.webp" class="none prova">`,
-`<img src="./img/04.webp" class="none prova">`,
-`<img src="./img/05.webp" class="none prova">`
-];
+
+for (let i = 0 ; i < arrayImg.length ; i++) {
+    let divImg = document.querySelector('.immagini').innerHTML += `
+        <div class="immagine" id="img${i}">
+            <img src="${arrayImg[i]}" alt="">
+        </div>
+    `;
+}
+    
+let frecciaDx = document.querySelector('.frecciaDx')
+let frecciaSx = document.querySelector('.frecciaSx')
 
 
- for (let i = 0; i < immagini.length; i++) {
-     document.querySelector(".img").innerHTML += immagini[i]
+let immagineAttiva = 0;
+
+
+frecciaDx.addEventListener('click', function(){
+
+    let vecchiaImg = document.getElementById(`img${immagineAttiva}`)
+    immagineAttiva = immagineAttiva + 1;
+
+    if (immagineAttiva == arrayImg.length) {
+        immagineAttiva = 0;
+    }
+    let nuovaImg= document.getElementById(`img${immagineAttiva}`);
+    if (vecchiaImg.classList.contains('attiva')){
+
+        vecchiaImg.classList.remove('attiva');
+        nuovaImg.classList.add('attiva');
     }
     
-    next.addEventListener('click', function() {
-        let none = document.querySelector('.none');
-        //let itemToActive = none.nextElementSibling;
-        //itemToActive.classList.add('none');
-        none.classList.remove('none');
-        
-        
-     })
 
- prev.addEventListener('click', function() {
-    let prova = document.querySelector('.prova');
-    prova.classList.add('none');
- })
+})
+frecciaSx.addEventListener('click', function(){
+
+    let vecchiaImg = document.getElementById(`img${immagineAttiva}`)
+
+    if (immagineAttiva == 0) {
+        immagineAttiva = arrayImg.length;
+    }
+    immagineAttiva = immagineAttiva - 1;
+    let nuovaImg= document.getElementById(`img${immagineAttiva}`);
+    if (vecchiaImg.classList.contains('attiva')){
+
+        vecchiaImg.classList.remove('attiva');
+        nuovaImg.classList.add('attiva');
+    }
+    
+
+})
     
 

@@ -1,44 +1,30 @@
-.container{
-    width: 80%;
-    height: 800px;
-    margin: auto;
-    border: 2px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.container {
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center
+
 }
- .boxImg{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: 80%;
-    margin: auto;
-    border: 2px solid black;
-    
- }
+.carosello {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   width: 70%;
+}
+.freccia {
+   font-size: 45px;
+   cursor: grab;
 
- .img{
-    width: 100%; 
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
- }
+}
 
- .none{
-    display: none;
- }
-
- .block{
-    display: block;
- }
-
- img{
-    width: 100%; 
-    height: 100%;
-    
- }
-
- i{
-    cursor: pointer;
- }
+.immagine {
+   display: none;
+}
+.attiva {
+   display: block;
+   
+}
+img {
+   border-radius: 25px;
+}
